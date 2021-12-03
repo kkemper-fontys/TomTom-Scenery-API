@@ -1,0 +1,6 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# rewrite all other request through the CMS
+RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png|svg|woff|woff2)$ [NC]
+RewriteRule ^(.*)$ controller/api.php [L]
