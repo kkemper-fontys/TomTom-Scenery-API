@@ -38,5 +38,7 @@ if (!authorization::checkKey($key)) {
         include("../position/create.php");
         include("../user/update.php");
     }
-    
+    if($API_TYPE === 'poi'){
+        include("../poi/read.php");
+    }
 }
