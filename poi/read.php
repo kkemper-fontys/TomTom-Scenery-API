@@ -37,8 +37,6 @@ if ($num > 0) {
         extract($row);
 
             $poi_item = array(
-                "id" => $id,
-                "user_id" => $user_id,
                 "name" => $name,
                 "address" => $address,
                 "longitude" => $longitude,
