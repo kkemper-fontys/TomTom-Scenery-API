@@ -17,10 +17,24 @@ class Api
         $this->conn = $db;
     }
 
-    function create($api_call)
+    function read($api_call, $timestamp)
+    {
+        // read query
+        $query = "SELECT * FROM `api_calls` WHERE `timestamp`=".$timestamp." AND `call`='".$api_call."'";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    function create($api_call, $timestamp)
     {
         // insert query
-        $query = "INSERT INTO `api_calls` (`timestamp`,`call`) VALUES (".time().",'".$api_call."')";
+        $query = "INSERT INTO `api_calls` (`timestamp`,`call`) VALUES (".$timestamp.",'".$api_call."')";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);

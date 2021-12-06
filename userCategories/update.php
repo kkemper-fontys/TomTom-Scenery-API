@@ -51,7 +51,7 @@ if ($num > 0) {
 
     // show products data in json format
     echo json_encode(
-        array("message" => "Category updated!")
+        array("message" => "Category added and updated!")
     );
 }
   

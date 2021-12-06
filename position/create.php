@@ -24,7 +24,14 @@ $coords = explode(",", $URL[4]);
 $longitude = $coords[0];
 $latitude = $coords[1];
 
+$time = time();
 
-$stmt = $position->create($longitude, $latitude, time());
+// check if position already excists in database
+$stmt2 = $position->read($longitude, $latitude, $time);
+$num = $stmt2->rowCount();
+
+if($num == 0){
+    $stmt = $position->create($longitude, $latitude, $time);
+}
 
 $num = $stmt->rowCount();

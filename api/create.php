@@ -18,4 +18,14 @@ $api = new Api($db);
 // query deviceinfo
 $URL_DATA = $_SERVER['REQUEST_URI'];
 
-$stmt = $api->create($URL_DATA);
+// get time of API Call
+$time = time();
+
+// check if call already excists in database
+$stmt2 = $api->read($URL_DATA, $time);
+$num = $stmt2->rowCount();
+
+// check if more than 0 record found
+if ($num == 0) {
+    $stmt = $api->create($URL_DATA, $time);
+}

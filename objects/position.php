@@ -32,6 +32,20 @@ class Position
         return $stmt;
     }
 
+    function read($input_longitude, $input_latitude, $timestamp)
+    {
+        // read query
+        $query = "SELECT * FROM `position_user` WHERE `timestamp`=".$timestamp." AND `longitude`=".$input_longitude." AND `latitude`=".$input_latitude."";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     function create($input_longitude, $input_latitude, $timestamp)
     {
 
