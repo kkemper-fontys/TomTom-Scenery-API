@@ -44,7 +44,7 @@ if ($num > 0) {
     $stmt2 = $user->readByDeviceId($DEVICE_ID);
     $row = $stmt2->fetch(PDO::FETCH_ASSOC);
 
-    $stmt3 = $cat_user->create($row['id'], $category_id);
+    $stmt3 = $cat_user->create($row['id'], $category_id, 1);
     
     // set response code - 200 OK
     http_response_code(200);

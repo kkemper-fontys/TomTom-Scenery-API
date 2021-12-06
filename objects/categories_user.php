@@ -33,13 +33,13 @@ class Cat_User
     //     return $stmt;
     // }
 
-    function create($user_id, $categories_id_list)
+    function create($user_id, $categories_id_list, $counter=0)
     {
         $categories = explode(",", $categories_id_list);
         foreach($categories as $category){
 
             // insert query
-            $query = "INSERT INTO `categories_user` (`categories_id`,`user_id`,`timestamp`) VALUES (".$category.",".$user_id.",".time().")";
+            $query = "INSERT INTO `categories_user` (`categories_id`,`user_id`,`timestamp`,`counter`) VALUES (".$category.",".$user_id.",".time().",".$counter.")";
 
             // prepare query statement
             $stmt = $this->conn->prepare($query);
