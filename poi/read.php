@@ -6,6 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 // include database and object files
 include_once '../config/database.php';
 include_once '../objects/poi.php';
+include_once '../objects/categories.php';
 
 // instantiate database and product object
 $database = new Database();
@@ -30,22 +31,34 @@ if ($num > 0) {
 
     // products array
     $poi_array = array();
+    $poi_array["poi"] = array();
+    
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         // extract row
         extract($row);
 
+            $category = new Category($db);
+            $catdata = $category->getCategoryById($row['category_id']);
+            $row2 = $catdata->fetch(PDO::FETCH_ASSOC);
+            
+            $cat_row = extract($fetchedCategory);
+
             $poi_item = array(
+                "id" => $id,
                 "name" => $name,
+                "category" => $cat_row['nl_nl'],
                 "address" => $address,
                 "longitude" => $longitude,
                 "latitude" => $latitude,
                 "category_id" => $category_id,
+                "category_link_url" => $row2['image_url'],
+                "category_name" => $row2['nl_nl'],
                 "timestamp" => $timestamp
             );
 
-        array_push($poi_array, $poi_item);
+        array_push($poi_array["poi"], $poi_item);
     }
 
     // set response code - 200 OK

@@ -49,4 +49,18 @@ class Cat_User
             // print_r($stmt);
         }
     }
+
+    function update($device_id, $category_id)
+    {
+        // insert query
+        $query = "UPDATE `categories_user` SET `counter`=counter+1 WHERE `user_id`=31 AND `categories_id`=".$category_id."";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+        // print_r($stmt);
+        return $stmt;
+    }
 }

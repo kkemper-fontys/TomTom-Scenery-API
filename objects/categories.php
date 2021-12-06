@@ -41,4 +41,17 @@ class Category
 
         return $stmt;
     }
+
+    function getCategoryById($id)
+    {
+        $query = "SELECT * FROM `categories` WHERE `tomtom_id`=".$id."";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
