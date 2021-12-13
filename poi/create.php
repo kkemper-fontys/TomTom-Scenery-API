@@ -1,6 +1,6 @@
 <?php
 // USAGE:
-// https://api.keeskemper.nl/key/poi/create/<user_id>/<poi_name>/<poi_address>/<poi_longitude>/<poi_latitude>/<category_id>
+// https://api.keeskemper.nl/<key>/poi/create/<user_id>/<poi_name>/<poi_address>/<poi_longitude>/<poi_latitude>/<category_id>
 
 
 // required headers

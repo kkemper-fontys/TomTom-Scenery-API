@@ -1,4 +1,8 @@
 <?php
+// USAGE:
+// https://api.keeskemper.nl/<key>/getUserById/<device_id>
+
+
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");

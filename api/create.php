@@ -1,4 +1,7 @@
 <?php
+// USAGE:
+// every API_CALL to api.keeskemper.nl is logged in the database
+
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
