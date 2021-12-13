@@ -18,20 +18,20 @@ class Cat_User
         $this->conn = $db;
     }
 
-    // read products
-    // function read()
-    // {
-    //     // select all query
-    //     $query = "SELECT * FROM `user` WHERE 1 ORDER BY `id` ASC";
+    // read categories users
+    function read($user_id)
+    {
+        // select all query
+        $query = "SELECT * FROM `categories_user` WHERE `user_id`=".$user_id." ORDER BY `counter` DESC LIMIT 5";
 
-    //     // prepare query statement
-    //     $stmt = $this->conn->prepare($query);
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
 
-    //     // execute query
-    //     $stmt->execute();
+        // execute query
+        $stmt->execute();
 
-    //     return $stmt;
-    // }
+        return $stmt;
+    }
 
     function create($user_id, $categories_id_list, $counter=0)
     {

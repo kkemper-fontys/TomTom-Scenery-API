@@ -31,6 +31,12 @@ if (!authorization::checkKey($key)) {
     if($API_TYPE === 'create'){
         include("../user/create.php");
     }
+    if($API_TYPE === 'users'){
+        $SEARCH_TYPE = $URL[2];
+        if($SEARCH_TYPE === 'readall'){
+            include("../user/readAll.php");
+        }
+    }
     if($API_TYPE === 'getUserById'){
         include("../user/read.php");
     }
@@ -40,6 +46,9 @@ if (!authorization::checkKey($key)) {
     }
     if($API_TYPE === 'updateUserCategory'){
         include("../userCategories/update.php");
+    }
+    if($API_TYPE === 'readUserCategories'){
+        include("../userCategories/read.php");
     }
     if($API_TYPE === 'poi'){
         $POI_TYPE = $URL[2];

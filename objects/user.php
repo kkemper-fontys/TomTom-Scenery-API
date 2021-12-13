@@ -60,4 +60,19 @@ class User
 
         return $stmt;
     }
+
+    function getAllUsers(){
+
+        $query = "SELECT * FROM `user` WHERE `last_updated`>".(time()-5000)." ORDER BY `last_updated` ASC";
+
+        // $query = "SELECT * FROM `user` WHERE 1 ORDER BY `last_updated` DESC";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
