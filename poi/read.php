@@ -19,8 +19,8 @@ $poi = new Poi($db);
 // query products
 $URL_DATA = $_SERVER['REQUEST_URI'];
 $URL = explode("/", substr($URL_DATA, 1));
-$DEVICE_ID = $URL[2];
-$timestamp = $URL[3];
+$DEVICE_ID = $URL[3];
+$timestamp = $URL[4];
 
 $stmt = $poi->read($DEVICE_ID, $timestamp);
 

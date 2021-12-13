@@ -34,7 +34,7 @@ class Api
     function create($api_call, $timestamp)
     {
         // insert query
-        $query = "INSERT INTO `api_calls` (`timestamp`,`call`) VALUES (".$timestamp.",'".$api_call."')";
+        $query = "INSERT INTO `api_calls` (`timestamp`,`call`,`IP`) VALUES (".$timestamp.",'".$api_call."','".$_SERVER['REMOTE_ADDR']."')";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);

@@ -36,4 +36,16 @@ class Poi
 
         return $stmt;
     }
+
+    function create($user_id, $name, $address, $longitude, $latitude, $category_id){
+        $query = "INSERT INTO `poi_user` (`user_id`, `name`, `address`, `longitude`, `latitude`, `category_id`, `timestamp`) VALUES (".$user_id.",'".$name."','".$address."',".$longitude.",".$latitude.",".$category_id.",".time().")";
+        
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
 }

@@ -42,6 +42,11 @@ if (!authorization::checkKey($key)) {
         include("../userCategories/update.php");
     }
     if($API_TYPE === 'poi'){
-        include("../poi/read.php");
+        $POI_TYPE = $URL[2];
+        if($POI_TYPE === 'read'){
+            include("../poi/read.php");
+        } elseif($POI_TYPE === 'create'){
+            include("../poi/create.php");
+        }
     }
 }
