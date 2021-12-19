@@ -3,8 +3,8 @@ class Database{
     // specify your own database credentials
     private $host = "localhost:3306";
     private $db_name = "TOMTOM_API";
-    private $username = "admin";
-    private $password = "WJcj2EHuXyQRdkY";
+    private $username = "*****";
+    private $password = "*****";
     public $conn;
   
     // get the database connection

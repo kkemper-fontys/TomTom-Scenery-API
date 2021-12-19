@@ -2,6 +2,8 @@
 // USAGE:
 // https://api.keeskemper.nl/<key>/poi/create/<user_id>/<poi_name>/<poi_address>/<poi_longitude>/<poi_latitude>/<category_id>
 
+// http://localhost:8080/getpoi/userid/category/longitude/latitude
+
 
 // required headers
 header("Access-Control-Allow-Origin: *");

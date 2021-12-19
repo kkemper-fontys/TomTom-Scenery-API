@@ -63,7 +63,7 @@ class User
 
     function getAllUsers(){
 
-        $query = "SELECT * FROM `user` WHERE `last_updated`>".(time()-5000)." ORDER BY `last_updated` ASC";
+        $query = "SELECT * FROM `user` WHERE `last_updated`>".(time()-1000000)." ORDER BY `last_updated` ASC";
 
         // $query = "SELECT * FROM `user` WHERE 1 ORDER BY `last_updated` DESC";
         
