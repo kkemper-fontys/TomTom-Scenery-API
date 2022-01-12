@@ -28,7 +28,7 @@ $time = time();
 $stmt2 = $api->read($URL_DATA, $time);
 $num = $stmt2->rowCount();
 
-// check if more than 0 record found
+// if no record is found, store the API-call in the database
 if ($num == 0) {
     $stmt = $api->create($URL_DATA, $time);
 }

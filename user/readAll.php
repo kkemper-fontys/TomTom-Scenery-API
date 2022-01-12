@@ -34,12 +34,6 @@ if ($num > 0) {
         // extract row
         extract($row);
 
-            // $category = new Category($db);
-            // $catdata = $category->getCategoryById($row['category_id']);
-            // $row2 = $catdata->fetch(PDO::FETCH_ASSOC);
-            
-            // $cat_row = extract($fetchedCategory);
-
             $user_item = array(
                 "id" => $id,
                 "device_id" => $device_id,
@@ -54,16 +48,16 @@ if ($num > 0) {
     // set response code - 200 OK
     http_response_code(200);
 
-    // show poi data in json format
+    // show user data in json format
     echo json_encode($user_array);
 } else {
     // set response code - 404 Not found
     http_response_code(404);
 
-    // tell the user no poi found
+    // tell the user no users found
     echo json_encode(
         array("message" => "No users found.")
     );
 }
   
-// no poi's found will be here
+// no user found will be here

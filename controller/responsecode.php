@@ -1,4 +1,5 @@
 <?php
+// possible responsecode from the API
 class responseCode {
 
     public static function sendCode($code){

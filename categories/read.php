@@ -17,18 +17,23 @@ $db = $database->getConnection();
 // initialize object
 $category = new Category($db);
 
-// read products will be here
+// read categories 
 // query products
 $URL_DATA = $_SERVER['REQUEST_URI'];
 $URL = explode("/", substr($URL_DATA, 1));
+
+// check the type of request
 $SEARCH_TYPE = $URL[2];
 
+// if request is a subcategory, give back all subcategories related to the given category id
 if ($SEARCH_TYPE === "subcategories") {
     $IDs = $URL[3];
     $stmt = $category->read(true, $IDs);
 } else {
     $stmt = $category->read();
 }
+
+// check how many rows are present
 $num = $stmt->rowCount();
 
 // check if more than 0 record found
@@ -47,6 +52,7 @@ if ($num > 0) {
         // just $name only
         extract($row);
 
+        // push data in array
         if ($row['parent_id'] > 0) {
             $category_item = array(
                 "id" => $id,
@@ -84,4 +90,4 @@ if ($num > 0) {
     );
 }
   
-// no products found will be here
+// no categories found will be here

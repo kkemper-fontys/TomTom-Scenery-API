@@ -19,8 +19,8 @@ $db = $database->getConnection();
 // initialize object
 $cat_user = new Cat_User($db);
 
-// read products will be here
-// query products
+// read categories will be here
+// query categories
 $URL_DATA = $_SERVER['REQUEST_URI'];
 $URL = explode("/", substr($URL_DATA, 1));
 $user_id = $URL[2];
@@ -32,7 +32,7 @@ $num = $stmt->rowCount();
 // check if more than 0 record found
 if ($num > 0) {
 
-    // products array
+    // categpry array
     $cat_array = array();
     $cat_array["categories"] = array();
     
@@ -54,14 +54,13 @@ if ($num > 0) {
                 "user_id" => $user_id,
                 "counter" => $counter
             );
-            // print_r($cat_row);
         array_push($cat_array["categories"], $cat_item);
     }
 
     // set response code - 200 OK
     http_response_code(200);
 
-    // show products data in json format
+    // show categories data in json format
     echo json_encode($cat_array);
 
 } else {
@@ -74,4 +73,4 @@ if ($num > 0) {
     );
 }
   
-// no products found will be here
+// no categories found will be here

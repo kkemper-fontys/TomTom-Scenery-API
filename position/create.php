@@ -23,6 +23,7 @@ $URL_DATA = $_SERVER['REQUEST_URI'];
 $URL = explode("/", substr($URL_DATA, 1));
 $DEVICE_ID = $URL[3];
 
+// get the users position by longitude and latitude
 $coords = explode(",", $URL[4]);
 $longitude = $coords[0];
 $latitude = $coords[1];
@@ -33,6 +34,7 @@ $time = time();
 $stmt2 = $position->read($longitude, $latitude, $time);
 $num = $stmt2->rowCount();
 
+// if no record exist, create it
 if($num == 0){
     $stmt = $position->create($longitude, $latitude, $time);
 }

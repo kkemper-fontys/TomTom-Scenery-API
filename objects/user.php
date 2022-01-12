@@ -50,6 +50,7 @@ class User
 
     function updateByDeviceId($input_device_id, $input_longitude, $input_latitude)
     {
+        // update query
         $query = "UPDATE `user` SET `longitude`='".$input_longitude."', `latitude`='".$input_latitude."', `last_updated`=".time()." WHERE `device_id`='".$input_device_id."'";
 
         // prepare query statement
@@ -63,9 +64,8 @@ class User
 
     function getAllUsers(){
 
+        // select query
         $query = "SELECT * FROM `user` WHERE `last_updated`>".(time()-1000000)." ORDER BY `last_updated` ASC";
-
-        // $query = "SELECT * FROM `user` WHERE 1 ORDER BY `last_updated` DESC";
         
         // prepare query statement
         $stmt = $this->conn->prepare($query);

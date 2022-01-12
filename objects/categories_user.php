@@ -60,7 +60,7 @@ class Cat_User
 
         // execute query
         $stmt->execute();
-        // print_r($stmt);
+
         return $stmt;
     }
 }

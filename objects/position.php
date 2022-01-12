@@ -48,16 +48,7 @@ class Position
 
     function create($input_longitude, $input_latitude, $timestamp)
     {
-
-        // $pos = new Position($db);
-
-        // query products
-        //$stmt2 = $pos->getByTimeStamp($timestamp);
-        //$num = $stmt2->rowCount();
-        // insert query
-        //if($num == 0){
-            $query = "INSERT INTO `position_user` (`longitude`, `latitude`, `timestamp`) VALUES ('".$input_longitude."','".$input_latitude."',".$timestamp.")";
-        //}
+        $query = "INSERT INTO `position_user` (`longitude`, `latitude`, `timestamp`) VALUES ('".$input_longitude."','".$input_latitude."',".$timestamp.")";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);

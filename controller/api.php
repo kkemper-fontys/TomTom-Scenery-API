@@ -15,8 +15,10 @@ include_once("../api/create.php");
 
 //CHECK IF KEY EXISTS
 if (!authorization::checkKey($key)) {
+    // key not found, send 401 error code back
     responseCode::sendCode(401);
 } else {
+    // key found, check API type and include the right page
     if ($API_TYPE === 'search') {
         $SEARCH_TYPE = $URL[2];
 
@@ -28,28 +30,41 @@ if (!authorization::checkKey($key)) {
             responseCode::sendCode(401);
         }
     }
+    // create new user
     if($API_TYPE === 'create'){
         include("../user/create.php");
     }
+
+    // get data of all users
     if($API_TYPE === 'users'){
         $SEARCH_TYPE = $URL[2];
         if($SEARCH_TYPE === 'readall'){
             include("../user/readAll.php");
         }
     }
+
+    // get user data by id
     if($API_TYPE === 'getUserById'){
         include("../user/read.php");
     }
+
+    // update user data
     if($API_TYPE === 'update'){
         include("../position/create.php");
         include("../user/update.php");
     }
+
+    // update users favorite categories
     if($API_TYPE === 'updateUserCategory'){
         include("../userCategories/update.php");
     }
+
+    // get users favorite categories
     if($API_TYPE === 'readUserCategories'){
         include("../userCategories/read.php");
     }
+
+    // get and set points of interest
     if($API_TYPE === 'poi'){
         $POI_TYPE = $URL[2];
         if($POI_TYPE === 'read'){

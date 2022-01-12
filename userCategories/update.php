@@ -19,8 +19,8 @@ $db = $database->getConnection();
 // initialize object
 $cat_user = new Cat_User($db);
 
-// read products will be here
-// query products
+// read categories will be here
+// query category
 $URL_DATA = $_SERVER['REQUEST_URI'];
 $URL = explode("/", substr($URL_DATA, 1));
 $DEVICE_ID = $URL[2];
@@ -36,7 +36,7 @@ if ($num > 0) {
     // set response code - 200 OK
     http_response_code(200);
 
-    // show products data in json format
+    // show categories data in json format
     echo json_encode(
         array("message" => "Category updated!")
     );
@@ -52,10 +52,10 @@ if ($num > 0) {
     // set response code - 200 OK
     http_response_code(200);
 
-    // show products data in json format
+    // show category data in json format
     echo json_encode(
         array("message" => "Category added and updated!")
     );
 }
   
-// no products found will be here
+// no categories found will be here
